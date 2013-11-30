@@ -34,6 +34,26 @@
 	 */
 	function onNavigationCompleted (e) {
 		console.log('URL Filter matched.', e);
+
+		// Inject necessary stylesheets.
+		chrome.tabs.insertCSS(null, {file: 'libs/syntaxhighlighter_3.0.83/styles/shCore.css'}, function () {
+			console.log('shCore.css was injected into the active tab.');
+		});
+
+		chrome.tabs.insertCSS(null, {file: 'libs/syntaxhighlighter_3.0.83/styles/shCoreDefault.css'}, function () {
+			console.log('shCoreDefault.css was injected into the active tab.');
+		});
+
+		// Inject necessary js as content scripts.
+		chrome.tabs.executeScript(null, {file: 'libs/syntaxhighlighter_3.0.83/scripts/shCore.js'}, function () {
+			console.log('shCore.js was injected into the active tab.');
+		});
+
+		// Inject language specific brush
+		chrome.tabs.executeScript(null, {file: 'libs/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js'}, function () {
+			console.log('shBrushJScript.js was injected into the active tab.');
+		});
+
 		chrome.tabs.executeScript(null, {file: 'content_script.js'}, function () {
 			console.log('content_script.js was injected into the active tab.');
 		});
