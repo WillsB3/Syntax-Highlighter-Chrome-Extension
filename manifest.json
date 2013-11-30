@@ -6,7 +6,7 @@
   "manifest_version": 2,
   "permissions": [
     "tabs",
-    "webNavigation",
+    "webRequest",
     "*://*/"
   ],
   "content_security_policy": "default-src 'none'; script-src 'self' 'unsafe-eval'; style-src 'self'; object-src 'self'; connect-src 'none'; img-src 'none'",
@@ -14,7 +14,7 @@
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "icons": {
     "128": "icon128.png"

@@ -79,11 +79,12 @@
 	 * @return {undefined}
 	 */
 	function registerEventListeners () {
-		chrome.webNavigation.onCompleted.addListener(onNavigationCompleted, {
-			url: [
-				{ pathSuffix: '.js' }
-			]
-		});
+		chrome.webRequest.onHeadersReceived.addListener(function (details) {
+			console.log("onHeadersReceived:", details.responseHeaders);
+		}, { 
+			types: ["main_frame"],
+			urls: ["<all_urls>"]
+		}, ["responseHeaders"]);
 	}
 
 	/**
