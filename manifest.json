@@ -5,8 +5,13 @@
   "version": "0.1",
   "manifest_version": 2,
   "permissions": ["webNavigation"],
+  "content_security_policy": "default-src 'none'; script-src 'self' 'unsafe-eval'; style-src 'self'; object-src 'self'; connect-src 'none'; img-src 'none'",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "/libs/syntaxhighlighter_3.0.83/scripts/shCore.js",
+      "/libs/syntaxhighlighter_3.0.83/scripts/shAutoloader.js",
+      "background.js"
+    ],
     "persistent": false
   },
   "icons": {
