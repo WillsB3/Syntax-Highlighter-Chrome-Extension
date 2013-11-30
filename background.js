@@ -95,7 +95,7 @@
 
 		 chrome.tabs.query({ active: true }, function (tabs) {
 		 	var extension,
-				brush,
+				brushFilename,
 				pageUrl,
 				pageUrlParts;
 

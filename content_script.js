@@ -19,7 +19,6 @@
 	}
 
 	function performHighlighting () {
-		debugger;
 		SyntaxHighlighter.highlight();
 	}
 
