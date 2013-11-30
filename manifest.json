@@ -5,8 +5,10 @@
   "version": "0.1",
   "manifest_version": 2,
   "permissions": [
+    "tabs",
     "activeTab",
-    "webNavigation"
+    "webNavigation",
+    "*://*/"
   ],
   "content_security_policy": "default-src 'none'; script-src 'self' 'unsafe-eval'; style-src 'self'; object-src 'self'; connect-src 'none'; img-src 'none'",
   "background": {
