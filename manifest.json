@@ -1,0 +1,15 @@
+{
+  "name": "Syntax Highlighter",
+  "description": "Make viewing code on the web as readable as it is in your editor.",
+  "author": "Wills Bithrey",
+  "version": "0.1",
+  "manifest_version": 2,
+  "permissions": ["webNavigation"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": {
+    "128": "icon128.png"
+  }
+}
