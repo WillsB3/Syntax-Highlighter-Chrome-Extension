@@ -1,0 +1,28 @@
+/*----------------------------------------------
+//	Syntax Highlighter Chrome Extension
+//	Copyright (c) 2013 Wills Bithrey
+-----------------------------------------------*/
+
+body {
+	font-family: 'consolas' !important;
+	font-size: 14px;
+	margin: 0;
+}
+
+#chrome-syntax-highlighter .syntaxhighlighter {
+	margin: 0 !important;
+}
+
+#chrome-syntax-highlighter .syntaxhighlighter table td.gutter .line,
+#chrome-syntax-highlighter .syntaxhighlighter table td.code .line {
+	padding-bottom: 0.1em !important;
+	padding-top: 0.1em !important;
+}
+
+#chrome-syntax-highlighter .syntaxhighlighter table td.gutter .line {
+	padding-left: 0.5em !important;
+}
+
+#chrome-syntax-highlighter .syntaxhighlighter table td.gutter .line:first-child {
+	padding-top: 0.5em !important;
+}

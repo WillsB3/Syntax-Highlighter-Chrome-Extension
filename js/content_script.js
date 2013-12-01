@@ -23,8 +23,10 @@
 	}
 
 	function initialise () {
+		console.log('init');
 		var src = document.querySelector('pre');
 		src.classList.add('brush:', 'js');
+		document.body.id = 'chrome-syntax-highlighter';
 
 		performHighlighting();
 	}
