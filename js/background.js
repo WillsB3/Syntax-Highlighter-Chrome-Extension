@@ -124,13 +124,13 @@
 			pageUrlParts = pageUrl.split('.');
 			extension = pageUrlParts[pageUrlParts.length - 1];
 			brushFilename = findBrushForExtension(extension);
-
 			// If we can't find a match for the current file then something has
 			// probably gone wrong since `onNavigationCompleted` shouldn't 
 			// get called unless one of the supported extensions is found in the
 			// URL by the UrlFilter used as part of `registerEventListeners`.
 			if (!brushFilename) {
 				console.warn('Could not identify Syntax Highlighter brush to use for extension "' + extension + '".');
+				return;
 			}
 
 			console.log('Brush for extension "' + extension + '": '  + brushFilename);
