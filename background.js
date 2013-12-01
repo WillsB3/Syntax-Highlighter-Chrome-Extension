@@ -79,9 +79,7 @@
 	 * @return {undefined}
 	 */
 	function registerEventListeners () {
-		chrome.webRequest.onHeadersReceived.addListener(function (details) {
-			console.log("onHeadersReceived:", details.responseHeaders);
-		}, { 
+		chrome.webRequest.onHeadersReceived.addListener(onHeadersReceived, { 
 			types: ["main_frame"],
 			urls: ["<all_urls>"]
 		}, ["responseHeaders"]);
@@ -91,11 +89,29 @@
 	 * Dynamically injects the extensions content script.
 	 * @return {undefined}
 	 */
-	function onNavigationCompleted (e) {
-		console.log('URL Filter matched.', e);
+	function onHeadersReceived (details) {
+		var headers = details.responseHeaders,
+			contentTypeHeader;
 
-		 chrome.tabs.query({ active: true }, function (tabs) {
-		 	var extension,
+		headers.some(function (header) {
+			if (header.name === 'Content-Type') {
+				contentTypeHeader = header;
+				return true;
+			}
+		});
+
+		console.log('onHeadersReceived:', details);
+		console.log('Found Content-Type header:', contentTypeHeader);
+
+		// Check if the content type contains text/html. If it does then we
+		// don't want to try and Syntax Highlight anything. 
+		if (contentTypeHeader.value.indexOf('text/html') !== -1) {
+			console.log('Content-Type text/html detected - Not Highlighting');
+			return;
+		}
+
+		chrome.tabs.query({ active: true }, function (tabs) {
+			var extension,
 				brushFilename,
 				pageUrl,
 				pageUrlParts;

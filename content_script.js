@@ -24,7 +24,6 @@
 
 	function initialise () {
 		var src = document.querySelector('pre');
-
 		src.classList.add('brush:', 'js');
 
 		performHighlighting();
